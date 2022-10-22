@@ -1,17 +1,24 @@
 import './App.css';
-import video from './video.mp4';
-import {Text, View} from 'react-native';
-import {useEffect, useRef, useState} from "react";
-import audio from './music.mp3'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faCircleQuestion} from "@fortawesome/free-solid-svg-icons"
-import {faGithub, faTelegram, faDiscord} from '@fortawesome/free-brands-svg-icons'
-
+import Main from './pages/Main'
+import About from './pages/About'
+import {BrowserRouter, NavLink, Route} from "react-router-dom";
+import {CSSTransition} from 'react-transition-group';
+import audio from "./music.mp3";
+import video from "./video.mp4";
+import {useEffect, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleQuestion, faHouse, faCirclePlay} from "@fortawesome/free-solid-svg-icons"
+import startImage from "./sakura-image.jpg"
+import gifStartImage from "./kiminonawa.gif"
 
 function App() {
 
-    // use Audio constructor to create HTMLAudioElement
+    const routes = [
+        {path: '/', Component: Main},
+        {path: '/about', Component: About},
+
+    ]
+
     const audioTune = new Audio(audio);
 
     // variable to play audio in loop
@@ -42,40 +49,70 @@ function App() {
     }
 
 
-    return (
-        <div className="App">
 
-            <div>
-                <video className='videoTag' autoPlay loop muted>
-                    <source src={video} type='video/mp4'/>
-                </video>
+
+    return (
+
+        <BrowserRouter>
+            <img alt='' id='start_image_id' className="start_image" src={gifStartImage}/>
+
+            <div className="start_text" id="start_text_id" style={{color: "white"}}>Press to start</div>
+            <FontAwesomeIcon id='start_button_id' className="start_button" color="white" icon={faCirclePlay}
+                             onClick={() => {
+                                 let firstElem = document.getElementById('start_image_id');
+                                 firstElem.style.opacity = "0";
+                                 firstElem.style.zIndex = "-999998";
+                                 let secondElem = document.getElementById('start_button_id');
+                                 secondElem.style.display = "none";
+                                 let thirdElem = document.getElementById('start_text_id');
+
+                                 thirdElem.style.display = "none";
+                                 playSound();
+                             }}
+            />
+
+
+            <div className="App">
+
+                <div>
+                    <video className='videoTag' autoPlay loop muted>
+                        <source src={video} type='video/mp4'/>
+                    </video>
+                </div>
+
+
+                <button className="button_music" onClick={playSound}></button>
+
+
             </div>
 
 
-            <button className="button_music" onClick={playSound}></button>
+            <div className="app">
+                <div className="div">
 
+                    <NavLink to="/"> <FontAwesomeIcon className="about_me_icon" color="white" icon={faHouse}/></NavLink>
+                    <NavLink to="/about"> <FontAwesomeIcon className="from_about_me_to_main_icon" color="white"
+                                                           icon={faCircleQuestion}/></NavLink>
 
-            <h1 className="name_text" style={{color: "white"}}>lastdesire</h1>
+                </div>
+                {routes.map(({path, Component}) =>
+                    <Route key={path} exact path={path}>
+                        {({match}) =>
+                            <CSSTransition
+                                timeout={1000}
+                                classNames="page"
+                                unmountOnExit
+                                in={match != null}
 
+                            >
+                                <Component/>
+                            </CSSTransition>
+                        }
+                    </Route>
+                )}
+            </div>
 
-            <a href={"https://github.com/lastdesire"}>
-                <FontAwesomeIcon className="github_icon" color="white" icon={faGithub}/>
-            </a>
-            <a href={"https://t.me/lastdesir3"}>
-                <FontAwesomeIcon className="telegram_icon" color="white" icon={faTelegram}/>
-            </a>
-
-            <a href={"https://discordapp.com/users/899249601251532850"}>
-                <FontAwesomeIcon className="discord_icon" color="white" icon={faDiscord}/>
-            </a>
-
-            <a href={"./about"}>
-                <FontAwesomeIcon className="about_me_icon" color="white" icon={faCircleQuestion}/>
-            </a>
-        </div>
-
-    );
+        </BrowserRouter>);
 }
-
 
 export default App;
