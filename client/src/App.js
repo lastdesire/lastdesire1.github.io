@@ -10,7 +10,7 @@ import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleQuestion, faHouse, faCirclePlay, faComments, faVolumeHigh} from "@fortawesome/free-solid-svg-icons"
 import React from 'react'
-import gifStartImage from "./kiminonawa.gif"
+import gifStartImage from "./background.gif"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
