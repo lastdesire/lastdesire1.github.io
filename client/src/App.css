@@ -98,7 +98,7 @@ video {
   height: 5%;
   position: fixed;
   top: 50%;
-  left: 43%;
+  left: 41%;
   overflow: auto;
 }
 
@@ -107,7 +107,7 @@ video {
   height: 5%;
   position: fixed;
   top: 50%;
-  left: 48%;
+  left: 49%;
   overflow: auto;
 }
 
@@ -116,7 +116,7 @@ video {
   height: 5%;
   position: fixed;
   top: 50%;
-  left: 53%;
+  left: 57%;
   overflow: auto;
 }
 
@@ -152,7 +152,7 @@ video {
 
 .name_text {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 70px;
+  font-size: 4.9vw;
   width: 80%;
   height: 80%;
   position: fixed;
@@ -163,7 +163,7 @@ video {
 
 .about_me_text {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 25px;
+  font-size: 3vw;
   width: 100%;
   height: 100%;
   position: center;
@@ -171,10 +171,10 @@ video {
   left: 6%;
   overflow: unset;
   color: white;
+  white-space: pre-line;
 }
 
 .about_style {
-
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 70px;
   position: fixed;
@@ -238,7 +238,7 @@ video {
 
 .start_text {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 70px;
+  font-size: 4vw;
 
   position: absolute !important;
   top: 45%;
@@ -265,7 +265,7 @@ video {
 
 .comment_name {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 35px;
+  font-size: 3vw;
   width: 50%;
   height: 100%;
   left: 10%;
@@ -276,7 +276,7 @@ video {
 
 .comment {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 35px;
+  font-size: 3vw;
   width: 100%;
   height: 100%;
   position: center;

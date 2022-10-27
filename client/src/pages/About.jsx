@@ -5,15 +5,15 @@ import Photo from "../photo.png";
 
 const About = () => {
     return (
-        <div className="about_me_text page" color="white">
+        <div className="about_me_text" color="white">
             <img src={Photo} className="photo_style" alt="fireSpot"/>
-            <h1> • About me: Gagin Artur</h1>
-            <h1> • 19 years old, studying at SPbU, SE.</h1>
-            <h1> • I've been studying programming since I was 16.</h1>
-            <h1> • During this time, I managed to work with the </h1>
-            <h1> following programming languages and libraries:</h1>
-            <h1> • C, C++, C#, Delphi, Python, OCaml, JS (React).</h1>
-            <h1> • Now I am studying OCaml and the ReactJS library more deeply. </h1>
+            <span> • About me: Gagin Artur{"\n"}</span>
+            <span> • 19 years old, studying at SPbU, SE.{"\n"}</span>
+            <span> • I've been studying programming since I was 16.{"\n"}</span>
+            <span> • During this time, I managed to work with the{"\n"}</span>
+            <span> following programming languages and libraries:{"\n"}</span>
+            <span> • C, C++, C#, Delphi, Python, OCaml, JS (React).{"\n"}</span>
+            <span> • Now I am studying OCaml and the ReactJS library more deeply. </span>
         </div>
 
     );
