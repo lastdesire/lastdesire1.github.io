@@ -25,7 +25,7 @@ function Messages() {
     }
 
     function createComment() {
-        let name = prompt('Enter your name', 'NoName');
+        let name = prompt('Enter your name', '');
         while (name === "") {
             name = prompt('Enter your name correctly!');
         }
@@ -33,14 +33,14 @@ function Messages() {
             return null;
         }
 
-        let message = prompt('Enter your message', 'NoMessage');
+        let message = prompt('Enter your message', '');
         while (message === "") {
             message = prompt('Enter your message correctly!');
         }
         if (message === null) {
             return null
         }
-        
+
         fetch('/api/comment', {
             method: 'POST',
             headers: {
