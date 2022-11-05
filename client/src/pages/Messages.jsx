@@ -23,6 +23,7 @@ function Messages() {
                 setComments(data);
             });
     }
+
     function createComment() {
         let name = prompt('Enter your name');
         while (name === "") {
@@ -32,7 +33,7 @@ function Messages() {
         while (message === "") {
             message = prompt('Enter your message correctly!');
         }
-        if (message === "" || name === "") {
+        if (message === null || name === null) {
             return null
         }
         fetch('/api/comment', {
@@ -51,7 +52,9 @@ function Messages() {
             });
     }
 
-    let res = comments.map(function(item) {
+
+    let res = comments.map(function(item)
+    {
         return <tr key={item.id}>
             <td className="comment_name">{item.name}:</td>
             <td className="comment">{item.message}</td>
