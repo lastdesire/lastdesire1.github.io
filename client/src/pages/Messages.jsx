@@ -32,7 +32,9 @@ function Messages() {
         while (message === "") {
             message = prompt('Enter your message correctly!');
         }
-
+        if (message === "" || name === "") {
+            return null
+        }
         fetch('/api/comment', {
             method: 'POST',
             headers: {
@@ -59,7 +61,7 @@ function Messages() {
         <div>
             {!comments ? 'There is no comments available' : res}
 
-            <FontAwesomeIcon className="comment_button" style={{color:"white"}} icon={faComment}onClick={createComment}/>
+            <FontAwesomeIcon className="comment_button" style={{color:"white"}} icon={faComment} onClick={createComment}/>
         </div>
     );
 }
